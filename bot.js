@@ -1,11 +1,14 @@
+const settings = require("./config.json"); 
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const initcmd = settings.initcmd;
+const client = new Discord.Client(); 
+const id = settings.id;
 const fs = require("fs"); 
 const Canvas = require("canvas");
 const jimp = require("jimp");
    let points = {}
    
-const prefix = 'v!'
+const prefix = '#'
   client.on('message', message => {
     if(message.author.bot) return;
             if (!points[message.author.id]) points[message.author.id] = {
@@ -452,7 +455,7 @@ message.channel.sendEmbed(embed)
 
 
 client.on("message", message => {
- if (message.content === "v!help") {
+ if (message.content === "#help") {
         message.react("✅")
            message.react("📬")
   const embed = new Discord.RichEmbed() 
@@ -460,14 +463,14 @@ client.on("message", message => {
      .setDescription(`
 ══════════ஜ۩۞۩ஜ════════════  
      🎮「العاب」🎮
-   🎮v!فكك
-   🎮v!لغز
-   🎮v!كتابه
-   🎮v!رياضيات
-   🎮v!ركب
-   🎮v!xo
-   🎮v!نقاطي
-   🎮v!top
+   🎮 | فكك
+   🎮 | لغز
+   🎮 | كتابه
+   🎮 | رياضيات
+   🎮 | ركب
+   🎮 | xo
+   🎮 | نقاطي
+   🎮 | top
 ══════════ஜ۩۞۩ஜ════════════ 
  `)
  .setFooter(`by :Mrkayan`)
@@ -580,9 +583,9 @@ reaction3.on("collect", r => {
     })
 }
 });
-const devs = ["378909031672184844"]
+const devs = ["536265699170058240"]
 
-const adminprefix = "v!";
+const adminprefix = "#";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -594,11 +597,11 @@ client.on('message', message => {
     if (message.content === (adminprefix + "Percie")) {
     message.guild.leave();        
   } else  
-  if (message.content.startsWith(adminprefix + 'wt')) {
+  if (message.content.startsWith(adminprefix + 'wat')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
+  if (message.content.startsWith(adminprefix + 'lis')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else     
@@ -628,4 +631,4 @@ client.on('message', message => {
   
   });
   
-client.login("NTM1NzU3Mzc3Mzc5NTAwMDMy.DyMypw.cPoNmWCkS1rdgDxZEBIrLVAYqAU");
+client.login(settings.token);
