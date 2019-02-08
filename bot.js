@@ -1,7 +1,6 @@
 const settings = require("./config.json"); 
 const Discord = require('discord.js');
-const initcmd = settings.initcmd;
-const client = new Discord.Client(); 
+const client = new Discord.Client();  
 const id = settings.id;
 const fs = require("fs"); 
 const Canvas = require("canvas");
